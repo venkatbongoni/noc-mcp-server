@@ -1,0 +1,80 @@
+[project]
+version = "0.1.0"
+authors = [
+  { name = "vbongoni" }
+]
+name = "noc-mcp-server"
+description = "NOC Internal MCP Server for All Internal Tools with DSPY Integration"
+readme = "README.md"
+license = "MIT"
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3.11",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent"
+]
+requires-python = ">=3.11, <3.14"
+dependencies = [
+    "arize-phoenix",
+    "beautifulsoup4",
+    "datasets",
+    "dspy",
+    "matplotlib",
+    "mcp",
+    "networkx",
+    "openinference-instrumentation-dspy",
+    "prompt-toolkit",
+    "pydantic",
+    "pydantic-settings",
+    "python-dotenv",
+    "rich",
+    "rouge-score",
+    "seaborn",
+    "tqdm",
+    "fastmcp",
+    "fastapi",
+    "aiohttp",
+    "pyyaml",
+    "structlog",
+    "python-json-logger",
+    "click",
+    "requests",
+    "dspy-ai",
+    
+]
+
+[project.urls]
+Homepage = "https://github.com/your-org/noc-mcp-server"
+Repository = "https://github.com/your-org/noc-mcp-server.git"
+Issues = "https://github.com/your-org/noc-mcp-server/issues"
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-asyncio",
+    "pytest-cov"
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+markers = [
+    "performance: marks tests as performance tests (deselect with '-m \"not performance\"')",
+    "demo: marks tests as demonstration tests",
+    "benchmark: marks tests as benchmark tests"
+]
+filterwarnings = [
+    "ignore::pydantic.warnings.PydanticDeprecatedSince20",
+    "ignore:Support for class-based.*:DeprecationWarning",
+    "ignore:Using extra keyword arguments on.*:DeprecationWarning"
+]
+
+[tool.setuptools.packages.find]
+include = ["agents*", "metrics*", "datasets*", "images*", "lib*", "logs*", "settings*", "tools*, core*, auth*, config*, util*"]
+
+
+
+
+[project.scripts]
+noc-mcp-server = "core.mcp_server:main"
+noc-mcp-demo = "integrated_demo:main"

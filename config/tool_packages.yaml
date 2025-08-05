@@ -1,0 +1,24 @@
+# NOC MCP Tool Packages Configuration
+# Define sets of tools to be exposed by the MCP server based on roles/workflows.
+# The MCP server loads tools based on the MCP_TOOL_PACKAGE environment variable.
+# If MCP_TOOL_PACKAGE is not set, 'full' is loaded.
+# If MCP_TOOL_PACKAGE is set to 'none', no tools are loaded (except list_tool_packages).
+
+# --- Package Definitions ---
+
+none: []
+
+syslog:
+  # System Log Tools
+  - READ_NEW_LOG_MESSAGES
+  - HIGHEST_SERVICE_IMPACT
+  - QUERY_DEVICES
+  - HOLISTIC_CAUSAL_REASONING
+  - EVALUATE_DRAFT_ANSWER
+  - SHORT_TERM_MEMORY
+
+
+rag:
+  #  RAG Tools
+  - LOOK_UP_FROM_ICS_SQL_SYSTEM
+  - LOOK_UP_FROM_ICS_RAGSYSTEM
